@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, Edges, MeshPortalMaterial, CameraControls, Environment,  } from '@react-three/drei'
+import { Squirtle } from './components/Squirtle'
+import { Bulbasaur } from './components/Bulbasaur'
 
 export const App = () => (
   <Canvas shadows camera={{ position: [-3, 0.5, 3] }}>
@@ -11,10 +13,10 @@ export const App = () => (
           <torusGeometry args={[0.65, 0.3, 64]} />
         </Side>
         <Side rotation={[0, Math.PI, 0]} bg="lightblue" index={1}>
-          <torusKnotGeometry args={[0.55, 0.2, 128, 32]} />
+          <Squirtle scale={3} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
         </Side>
         <Side rotation={[0, Math.PI / 2, Math.PI / 2]} bg="lightgreen" index={2}>
-          <boxGeometry args={[1.15, 1.15, 1.15]} />
+          <Bulbasaur scale={2} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
         </Side>
         <Side rotation={[0, Math.PI / 2, -Math.PI / 2]} bg="aquamarine" index={3}>
           <octahedronGeometry />
@@ -34,7 +36,6 @@ function Side({ rotation = [0, 0, 0], bg = '#f0f0f0', children, index }) {
   const mesh = useRef()
   const { nodes } = useGLTF('models/aobox-transformed.glb')
   useFrame((state, delta) => {
-    mesh.current.rotation.x = mesh.current.rotation.y += delta
   })
   return (
     <MeshPortalMaterial attach={`material-${index}`}>
