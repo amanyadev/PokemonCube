@@ -3,6 +3,11 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, Edges, MeshPortalMaterial, CameraControls, Environment,  } from '@react-three/drei'
 import { Squirtle } from './components/Squirtle'
 import { Bulbasaur } from './components/Bulbasaur'
+import { Mew } from './components/Mew'
+import { Pichu } from './components/Pichu'
+
+import { Ditto } from './components/Ditto'
+import { Charmander } from './components/Charmander'
 
 export const App = () => (
   <Canvas shadows camera={{ position: [-3, 0.5, 3] }}>
@@ -10,22 +15,22 @@ export const App = () => (
         <boxGeometry args={[2.3, 2.3, 2.3]} />
         <Edges />
         <Side rotation={[0, 0, 0]} bg="orange" index={0}>
-          <torusGeometry args={[0.65, 0.3, 64]} />
+        <Charmander scale={2.4} position-y={-1} rotation={[0,Math.PI/2,0]}/>
         </Side>
         <Side rotation={[0, Math.PI, 0]} bg="lightblue" index={1}>
           <Squirtle scale={3} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
         </Side>
-        <Side rotation={[0, Math.PI / 2, Math.PI / 2]} bg="lightgreen" index={2}>
-          <Bulbasaur scale={2} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
+        <Side rotation={[0, Math.PI / 2, Math.PI / 2]} bg="lightpink" index={2}>
+          <Ditto scale={3} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
         </Side>
         <Side rotation={[0, Math.PI / 2, -Math.PI / 2]} bg="aquamarine" index={3}>
-          <octahedronGeometry />
+        <Mew scale={2} position-y={-1} rotation={[0,-Math.PI/2,0]}/>
         </Side>
-        <Side rotation={[0, -Math.PI / 2, 0]} bg="indianred" index={4}>
-          <icosahedronGeometry />
+        <Side rotation={[0, -Math.PI / 2, 0]} bg="lightgreen" index={4}>
+        <Bulbasaur scale={2} position-y={-1} rotation={[0,0,0]}/>
         </Side>
-        <Side rotation={[0, Math.PI / 2, 0]} bg="hotpink" index={5}>
-          <dodecahedronGeometry />
+        <Side rotation={[0, Math.PI / 2, 0]} bg="yellow" index={5}>
+        <Pichu scale={2.5} position-y={-1} rotation={[0,Math.PI,0]}/>
         </Side>
       </mesh>
     <CameraControls makeDefault />
