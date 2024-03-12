@@ -15,8 +15,23 @@ export function Ditto(props) {
    actions["animation_0"].reset().fadeIn(0.5).play();
    return () => actions["animations_0"].fadeOut(0.5).play();
   },[]);
+  // const { camera, mouse } = useThree();
+
+  const handleClick = () => {
+    // Play sound when model is clicked
+    // const listener = new THREE.AudioListener();
+    // camera.add(listener);
+    // const sound = new THREE.Audio(listener);
+    // const audioLoader = new THREE.AudioLoader();
+    // audioLoader.load('/path/to/sound.mp3', (buffer) => {
+    //   sound.setBuffer(buffer);
+    //   sound.setLoop(false);
+    //   sound.setVolume(0.5);
+    //   sound.play();
+    // });
+  };
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} onClick={handleClick}>
       <group>
         <group name="Y_UP">
           <group name="Metamon" rotation={[-Math.PI, 0, -Math.PI]} scale={[-1, 1, 1]}>

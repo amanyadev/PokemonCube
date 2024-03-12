@@ -11,6 +11,7 @@ import { Charmander } from './components/Charmander'
 
 export const App = () => (
   <Canvas shadows camera={{ position: [-3, 0.5, 3] }}>
+    <color attach="background" args={["#0E0E0E"]} />
       <mesh castShadow receiveShadow>
         <boxGeometry args={[2.3, 2.3, 2.3]} />
         <Edges />
